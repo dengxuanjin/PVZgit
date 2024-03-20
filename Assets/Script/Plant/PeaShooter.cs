@@ -23,6 +23,7 @@ public class PeaShooter : Plant
             timer = 0;
             GameObject obj = GameObject.Instantiate(Bullet, BulletPos);
         }
+        Debug.log("Hello");
     }
 
 }

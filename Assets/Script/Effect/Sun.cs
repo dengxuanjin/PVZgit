@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,23 @@ public class Sun : MonoBehaviour
     private float Timer = 0;
 
     private Vector3 targetPos;
+    private SpriteRenderer sr;
     void Start()
     {
         Timer = 0;
+        sr = GetComponent<SpriteRenderer>();
+        CraeteSun();
     }
 
     public void SetTargetPos(Vector3 pos)
     {
         this.targetPos = pos;
+    }
+
+    private void CraeteSun()
+    {
+        transform.DOScale(0, 0.5f).From() ;
+        sr.DOFade(0, 0.5f).From();
     }
 
     void Update()

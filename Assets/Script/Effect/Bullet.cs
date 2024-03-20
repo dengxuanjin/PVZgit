@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Bullet : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.tag == "Zombie")
         {
+            Camera.main.transform.DOShakePosition(0.3f, 3);
             collision.GetComponent<ZombieNormal>().ChangeHealth(Damage);
             DestroyBullet();
         }
@@ -30,6 +32,7 @@ public class Bullet : MonoBehaviour
     }
     public virtual void DestroyBullet()
     {
+        // 时间，强度重载
         GameObject.Destroy(gameObject);
     }
 }
